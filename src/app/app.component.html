@@ -1,4 +1,20 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<dx-data-grid #grid id="gridContainer" [dataSource]="customers"
+  [showBorders]="true">
+  <ng-container *ngFor="let column of columns; let k = index">
+    <dxi-column *ngFor="let column of columns; let k = index" [dataField]="column?.dataField" [caption]="column?.caption"
+      [allowSorting]="column?.allowSorting" [sortOrder]="column?.sortOrder"
+      [width]="column?.width ? column.width : null"
+      [allowFiltering]="column?.allowFiltering"
+      [allowFixing]="column?.allowFixing" [allowSearch]="column?.allowSearch"
+      [calculateCellValue]="column?.calculateCellValue"
+      [calculateDisplayValue]="column?.calculateDisplayValue"
+      [calculateFilterExpression]="column?.calculateFilterExpression"
+      [calculateSortValue]="column?.calculateSortValue"
+      [columns]="column?.columns" [cssClass]="column?.cssClass"
+      [customizeText]="column?.customizeText" [dataType]="column?.dataType"
+      [format]="column?.format" [lookup]="column?.lookup"
+      [visible]="column?.visible" [encodeHtml]="column?.encodeHtml"
+      [filterOperations]="column?.filterOperations ? column?.filterOperations : (column?.dataType === 'string' ? STRING_ALLOWED_FILTERS : null)">aaa
+    </dxi-column>
+  </ng-container>
+</dx-data-grid>
